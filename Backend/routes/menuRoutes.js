@@ -23,4 +23,16 @@ router.post("/", async (req, res) => {
   }
 });
 
+// PUT update menu item by ID
+router.put("/:id", async (req, res) => {
+  try {
+    const updatedMenu = await Menu.findByIdAndUpdate(
+      req.params.id, req.body, { new: true }
+    );
+    res.json(updatedMenu);
+  } catch (error) {
+    res.status(400).json({ error: "Failed to update menu item" });
+  }
+});
+
 module.exports = router;

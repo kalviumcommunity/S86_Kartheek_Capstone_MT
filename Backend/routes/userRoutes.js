@@ -23,4 +23,16 @@ router.post("/", async (req, res) => {
   }
 });
 
+// PUT update user by ID
+router.put("/:id", async (req, res) => {
+  try {
+    const updatedUser = await User.findByIdAndUpdate(
+      req.params.id, req.body, { new: true }
+    );
+    res.json(updatedUser);
+  } catch (error) {
+    res.status(400).json({ error: "Failed to update user" });
+  }
+});
+
 module.exports = router;
