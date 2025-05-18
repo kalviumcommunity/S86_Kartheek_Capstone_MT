@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Chef = require("../models/Chef");
 
-// GET all chefs
+
 router.get("/", async (req, res) => {
   try {
     const chefs = await Chef.find();
@@ -12,7 +12,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// POST a new chef
+
 router.post("/", async (req, res) => {
   try {
     const newChef = new Chef(req.body);
@@ -23,7 +23,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-// PUT update chef by ID
+
 router.put("/:id", async (req, res) => {
   try {
     const updatedChef = await Chef.findByIdAndUpdate(
