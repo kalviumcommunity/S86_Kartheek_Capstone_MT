@@ -12,4 +12,15 @@ router.get("/", async (req, res) => {
   }
 });
 
+// POST a new menu item
+router.post("/", async (req, res) => {
+  try {
+    const newMenu = new Menu(req.body);
+    await newMenu.save();
+    res.status(201).json(newMenu);
+  } catch (error) {
+    res.status(400).json({ error: "Failed to create menu item" });
+  }
+});
+
 module.exports = router;

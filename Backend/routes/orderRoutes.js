@@ -14,4 +14,15 @@ router.get("/", async (req, res) => {
   }
 });
 
+// POST a new order
+router.post("/", async (req, res) => {
+  try {
+    const newOrder = new Order(req.body);
+    await newOrder.save();
+    res.status(201).json(newOrder);
+  } catch (error) {
+    res.status(400).json({ error: "Failed to create order" });
+  }
+});
+
 module.exports = router;
