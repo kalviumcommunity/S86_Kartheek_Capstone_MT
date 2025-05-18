@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Order = require("../models/Order");
 
-// GET all orders
+
 router.get("/", async (req, res) => {
   try {
     const orders = await Order.find()
@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// POST a new order
+
 router.post("/", async (req, res) => {
   try {
     const newOrder = new Order(req.body);
@@ -25,7 +25,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-// PUT update order by ID
+
 router.put("/:id", async (req, res) => {
   try {
     const updatedOrder = await Order.findByIdAndUpdate(

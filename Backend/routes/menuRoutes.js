@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Menu = require("../models/Menu");
 
-// GET all menu items
+
 router.get("/", async (req, res) => {
   try {
     const menus = await Menu.find().populate("chefId");
@@ -12,7 +12,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// POST a new menu item
+
 router.post("/", async (req, res) => {
   try {
     const newMenu = new Menu(req.body);
@@ -23,7 +23,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-// PUT update menu item by ID
+
 router.put("/:id", async (req, res) => {
   try {
     const updatedMenu = await Menu.findByIdAndUpdate(

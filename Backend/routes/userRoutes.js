@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
 
-// GET all users
+
 router.get("/", async (req, res) => {
   try {
     const users = await User.find();
@@ -12,7 +12,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// POST a new user
+
 router.post("/", async (req, res) => {
   try {
     const newUser = new User(req.body);
@@ -23,7 +23,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-// PUT update user by ID
+
 router.put("/:id", async (req, res) => {
   try {
     const updatedUser = await User.findByIdAndUpdate(
