@@ -12,4 +12,15 @@ router.get("/", async (req, res) => {
   }
 });
 
+// POST a new chef
+router.post("/", async (req, res) => {
+  try {
+    const newChef = new Chef(req.body);
+    await newChef.save();
+    res.status(201).json(newChef);
+  } catch (error) {
+    res.status(400).json({ error: "Failed to create chef" });
+  }
+});
+
 module.exports = router;

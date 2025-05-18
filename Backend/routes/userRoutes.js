@@ -12,4 +12,15 @@ router.get("/", async (req, res) => {
   }
 });
 
+// POST a new user
+router.post("/", async (req, res) => {
+  try {
+    const newUser = new User(req.body);
+    await newUser.save();
+    res.status(201).json(newUser);
+  } catch (error) {
+    res.status(400).json({ error: "Failed to create user" });
+  }
+});
+
 module.exports = router;
