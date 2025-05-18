@@ -25,4 +25,16 @@ router.post("/", async (req, res) => {
   }
 });
 
+// PUT update order by ID
+router.put("/:id", async (req, res) => {
+  try {
+    const updatedOrder = await Order.findByIdAndUpdate(
+      req.params.id, req.body, { new: true }
+    );
+    res.json(updatedOrder);
+  } catch (error) {
+    res.status(400).json({ error: "Failed to update order" });
+  }
+});
+
 module.exports = router;

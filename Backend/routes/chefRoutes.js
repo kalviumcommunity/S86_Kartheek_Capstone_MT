@@ -23,4 +23,16 @@ router.post("/", async (req, res) => {
   }
 });
 
+// PUT update chef by ID
+router.put("/:id", async (req, res) => {
+  try {
+    const updatedChef = await Chef.findByIdAndUpdate(
+      req.params.id, req.body, { new: true }
+    );
+    res.json(updatedChef);
+  } catch (error) {
+    res.status(400).json({ error: "Failed to update chef" });
+  }
+});
+
 module.exports = router;
