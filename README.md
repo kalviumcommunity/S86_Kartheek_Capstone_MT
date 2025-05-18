@@ -229,7 +229,7 @@ Day 41: Write final README, add video links, screenshots, usage guide.
 
 
 Day 42: Submit final capstone project with all proof of work and videos.
-
+This is the total plan of capstone
 
 
 
